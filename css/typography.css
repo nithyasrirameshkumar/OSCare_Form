@@ -1,0 +1,77 @@
+/* ==========================================
+   ENTERPRISE HEALTHCARE SAAS - TYPOGRAPHY
+   typography.css
+   ========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  color: var(--color-text-main);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.display-1 {
+  font-size: clamp(2.75rem, 5vw + 1rem, 4.5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.display-2 {
+  font-size: clamp(2.25rem, 4vw + 1rem, 3.5rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+h1, .h1 {
+  font-size: clamp(2rem, 3.5vw + 1rem, 3rem);
+}
+
+h2, .h2 {
+  font-size: clamp(1.75rem, 2.5vw + 1rem, 2.35rem);
+}
+
+h3, .h3 {
+  font-size: clamp(1.35rem, 1.5vw + 1rem, 1.75rem);
+  font-weight: 600;
+}
+
+h4, .h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+p, .body-md {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+
+.lead-text {
+  font-size: clamp(1.1rem, 1vw + 0.8rem, 1.35rem);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }

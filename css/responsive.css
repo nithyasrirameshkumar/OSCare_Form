@@ -1,0 +1,98 @@
+/* ==========================================
+   ENTERPRISE HEALTHCARE SAAS - RESPONSIVE STYLES
+   responsive.css
+   ========================================== */
+
+/* Laptop / Desktop Adjustments (Under 1024px) */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr repeat(3, 1fr);
+  }
+  
+  .dashboard-preview {
+    height: 460px;
+  }
+  
+  .widget-doctor { width: 220px; left: 1rem; }
+  .widget-appointment { width: 240px; right: 1rem; }
+}
+
+/* Tablet Layouts (Under 768px) */
+@media (max-width: 768px) {
+  .glass-navbar {
+    width: calc(100% - 1.5rem);
+    padding: 0.75rem 1rem;
+  }
+  
+  .nav-links {
+    display: none; /* Can be toggled with mobile overlay */
+  }
+  
+  .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .timeline-line, .timeline-progress {
+    left: 20px;
+  }
+  
+  .timeline-item, .timeline-item:nth-child(even) {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 3rem;
+    padding-right: 0;
+    justify-content: flex-start;
+  }
+  
+  .timeline-dot, .timeline-item:nth-child(even) .timeline-dot {
+    left: 10px;
+  }
+  
+  .dashboard-preview {
+    height: auto;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .widget-card {
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: 100% !important;
+  }
+
+  .pricing-card.featured {
+    transform: scale(1);
+  }
+}
+
+/* Mobile Layouts (Under 480px) */
+@media (max-width: 480px) {
+  .section-padding {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .nav-actions .secondary-button {
+    display: none;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

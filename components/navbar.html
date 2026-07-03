@@ -1,0 +1,145 @@
+<!-- ==========================================
+   SHARED NAVBAR COMPONENT WITH RICH MEGA MENU
+   components/navbar.html
+   ========================================== -->
+<header class="glass-navbar">
+  <div class="nav-container">
+    <!-- Brand Logo -->
+    <a href="index.html" class="brand-logo" id="nav-brand-logo" aria-label="CuraOS Homepage">
+      <div class="brand-logo-icon">
+        <i data-lucide="activity"></i>
+      </div>
+      <span>CuraOS</span>
+    </a>
+
+    <!-- Navigation Links & Rich Mega Menus -->
+    <nav aria-label="Main Navigation">
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link" id="nav-link-home">Home</a></li>
+        
+        <!-- Solutions Rich Mega Menu Dropdown -->
+        <li class="nav-dropdown-wrapper mega-dropdown-wrapper">
+          <button class="dropdown-trigger nav-link" id="solutions-dropdown-trigger" type="button" aria-expanded="false" aria-controls="solutions-mega-menu">
+            <span>Solutions</span>
+            <i data-lucide="chevron-down" style="width:14px; height:14px; transition:transform 0.2s ease;"></i>
+          </button>
+          
+          <!-- Rich Mega Menu Container -->
+          <div class="mega-menu" id="solutions-mega-menu" role="region" aria-label="Healthcare Solutions">
+            <div class="mega-menu-grid">
+              
+              <!-- Column 1: Core Practice OS -->
+              <div class="mega-menu-col">
+                <div class="mega-menu-category-title">Core Practice OS</div>
+                
+                <a href="for-clinics.html" class="mega-menu-item" id="mega-link-clinics">
+                  <div class="mega-menu-icon" style="background:var(--color-primary-light); color:var(--color-primary);">
+                    <i data-lucide="stetho-scope"></i>
+                  </div>
+                  <div>
+                    <div class="mega-menu-item-title">Software for Clinics</div>
+                    <div class="mega-menu-item-desc">Appointment scheduling, eRx & patient records for private practices.</div>
+                  </div>
+                </a>
+
+                <a href="for-hospitals.html" class="mega-menu-item" id="mega-link-hospitals">
+                  <div class="mega-menu-icon" style="background:var(--color-accent-light); color:var(--color-accent-hover);">
+                    <i data-lucide="building-2"></i>
+                  </div>
+                  <div>
+                    <div class="mega-menu-item-title">Software for Hospitals</div>
+                    <div class="mega-menu-item-desc">Multi-ward command, emergency triage & HL7 enterprise sync.</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Column 2: Ecosystem Expansion (Future Ready) -->
+              <div class="mega-menu-col">
+                <div class="mega-menu-category-title">Specialty Facilities</div>
+                
+                <a href="contact.html?interest=diagnostics" class="mega-menu-item" id="mega-link-diagnostics">
+                  <div class="mega-menu-icon" style="background:rgba(245, 158, 11, 0.12); color:#d97706;">
+                    <i data-lucide="flask-conical"></i>
+                  </div>
+                  <div>
+                    <div class="mega-menu-item-title">Diagnostic Centers & Labs <span class="badge badge-accent" style="font-size:0.65rem; padding:0.1rem 0.4rem; margin-left:0.3rem;">Preview</span></div>
+                    <div class="mega-menu-item-desc">Automated lab sample tracking & LIS barcode result feeds.</div>
+                  </div>
+                </a>
+
+                <a href="contact.html?interest=specialty" class="mega-menu-item" id="mega-link-dental-eye">
+                  <div class="mega-menu-icon" style="background:rgba(16, 185, 129, 0.12); color:#059669;">
+                    <i data-lucide="eye"></i>
+                  </div>
+                  <div>
+                    <div class="mega-menu-item-title">Dental & Eye Hospitals <span class="badge badge-primary" style="font-size:0.65rem; padding:0.1rem 0.4rem; margin-left:0.3rem;">Preview</span></div>
+                    <div class="mega-menu-item-desc">Specialized dental charting & ophthalmic vision examination tools.</div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Column 3: Featured Showcase Card -->
+              <div class="mega-menu-col mega-menu-featured-col">
+                <div class="mega-menu-featured-card">
+                  <div class="badge badge-primary" style="margin-bottom:0.5rem; font-size:0.7rem;">Interactive Ecosystem Guide</div>
+                  <h4 style="font-size:1.05rem; margin-bottom:0.5rem; color:var(--color-text-main);">Find the Right Operating System</h4>
+                  <p style="font-size:0.8rem; color:var(--color-text-muted); margin-bottom:1rem; line-height:1.4;">Compare feature matrices across our clinical and hospital modules in real-time.</p>
+                  <a href="pricing.html" class="primary-button" style="padding:0.45rem 0.9rem; font-size:0.8rem; width:100%; justify-content:center;" id="mega-btn-compare">
+                    <span>Compare All Plans</span>
+                    <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </li>
+
+        <li><a href="features.html" class="nav-link" id="nav-link-features">Features</a></li>
+        <li><a href="pricing.html" class="nav-link" id="nav-link-pricing">Pricing</a></li>
+        <li><a href="contact.html" class="nav-link" id="nav-link-contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- Right Side Actions -->
+    <div class="nav-actions">
+      <!-- Sign In Dropdown (Existing Customers Only) -->
+      <div class="nav-dropdown-wrapper">
+        <button class="dropdown-trigger" id="signin-dropdown-trigger" type="button" aria-expanded="false" aria-controls="signin-dropdown-menu">
+          <span>Sign In</span>
+          <i data-lucide="chevron-down" style="width:16px; height:16px;"></i>
+        </button>
+        
+        <div class="dropdown-menu" id="signin-dropdown-menu" role="menu">
+          <a href="login.html?type=clinic" class="dropdown-item" id="signin-clinic" role="menuitem">
+            <div class="dropdown-item-icon"><i data-lucide="stetho-scope" style="width:18px; height:18px;"></i></div>
+            <div>
+              <div class="font-semibold">Sign in as Clinic</div>
+              <div class="text-xs text-subtle" style="color:var(--color-text-subtle);">Existing clinic providers</div>
+            </div>
+          </a>
+          <a href="login.html?type=hospital" class="dropdown-item" id="signin-hospital" role="menuitem">
+            <div class="dropdown-item-icon"><i data-lucide="building-2" style="width:18px; height:18px;"></i></div>
+            <div>
+              <div class="font-semibold">Sign in as Hospital</div>
+              <div class="text-xs text-subtle" style="color:var(--color-text-subtle);">Hospital administrators</div>
+            </div>
+          </a>
+          <a href="login.html?type=admin" class="dropdown-item" id="signin-admin" role="menuitem">
+            <div class="dropdown-item-icon"><i data-lucide="shield-check" style="width:18px; height:18px;"></i></div>
+            <div>
+              <div class="font-semibold">Sign in as Admin</div>
+              <div class="text-xs text-subtle" style="color:var(--color-text-subtle);">System controllers</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Primary CTA (New Customers Only) -->
+      <a href="onboarding.html" class="primary-button" id="nav-cta-practice">
+        <span>List Your Practice for Free</span>
+        <i data-lucide="arrow-right" style="width:16px; height:16px;"></i>
+      </a>
+    </div>
+  </div>
+</header>
