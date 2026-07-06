@@ -461,7 +461,7 @@ async function renderSuccessPage() {
         <p>We’ve saved your details and sent the appointment to our reception team for review.</p>
       </div>
       <div class="patient-status-card">
-        <strong>${appointment.id}</strong>
+        <strong>${appointment.patient_name}</strong>
         <div class="patient-appointment-meta">
           <span>${appointment.appointment_date}</span>
           <span>${appointment.appointment_time}</span>
