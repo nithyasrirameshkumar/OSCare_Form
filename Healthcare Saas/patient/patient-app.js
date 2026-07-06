@@ -1,4 +1,4 @@
-
+const API_BASE_URL = "http://192.168.0.4:8000"; 
 // const PATIENT_DOCTORS = [
 //   { id: 1, name: 'Dr. Nisha Rao', department: 'Cardiology', slots: ['08:30', '11:00', '15:30'] },
 //   { id: 2, name: 'Dr. Arun Mehta', department: 'Neurology', slots: ['09:00', '14:00'] },
@@ -301,7 +301,7 @@ function renderBookingPage() {
     //   window.location.href = `success.html?ref=${appointment.reference}&phone=${encodeURIComponent(phone)}`;
     // }
     const response = await fetch(
-    "http://localhost:8000/api/patient_appointment/booking",
+    `${API_BASE_URL}/api/patient_appointment/booking`,
     {
         method: "POST",
         headers: {
@@ -423,7 +423,7 @@ async function renderSuccessPage() {
     const id = params.get("id");
 
     const response = await fetch(
-        `http://localhost:8000/api/patient_appointment/${id}`
+        `${API_BASE_URL}/api/patient_appointment/${id}`
     );
 
     if (!response.ok) {
