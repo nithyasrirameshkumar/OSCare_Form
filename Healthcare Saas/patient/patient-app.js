@@ -310,9 +310,16 @@ function renderBookingPage() {
         );
 
         console.log("Status:", response.status);
+        if (!response.ok) {
+          const error = await response.json();
+          alert(error.detail);
+          return;
+        }
 
-        const data = await response.json();
-        console.log("Response:", data);
+        const appointment = await response.json();
+
+        window.location.href =
+        `success.html?id=${appointment.id}`;
 
     } catch (err) {
         console.error("Fetch error:", err);
@@ -335,16 +342,7 @@ function renderBookingPage() {
     // }
     // );
 
-    if (!response.ok) {
-      const error = await response.json();
-      alert(error.detail);
-      return;
-    }
-
-    const appointment = await response.json();
-
-    window.location.href =
-    `success.html?id=${appointment.id}`;
+   
       });
 }
 
