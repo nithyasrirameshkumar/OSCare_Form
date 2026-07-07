@@ -360,7 +360,11 @@ async function renderStatusPage() {
   if (phoneValue) {
       try {
           const response = await fetch(
-              `${API_BASE_URL}/api/patient_appointment/patient_phone/${phoneValue}`
+              `${API_BASE_URL}/api/patient_appointment/patient_phone/${phoneValue}`,
+              {
+                method: "GET",
+                credentials: "include"
+              }
           );
 
           if (response.ok) {
