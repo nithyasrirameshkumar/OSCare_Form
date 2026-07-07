@@ -299,7 +299,8 @@ function renderBookingPage() {
                 method: "POST",
                 credentials: "include",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "ngrok-skip-browser-warning": "true"
                 },
                 body: JSON.stringify({
                     patient_name: patientName,
@@ -363,6 +364,9 @@ async function renderStatusPage() {
               `${API_BASE_URL}/api/patient_appointment/patient_phone/${phoneValue}`,
               {
                 method: "GET",
+                headers: {
+                  "ngrok-skip-browser-warning": "true"
+                },
                 credentials: "include"
               }
           );
@@ -469,6 +473,9 @@ async function renderSuccessPage() {
         `${API_BASE_URL}/api/patient_appointment/${id}`,
         {
         method: "GET",
+        headers: {
+            "ngrok-skip-browser-warning": "true"
+        },
         credentials: "include"
     }
     );
