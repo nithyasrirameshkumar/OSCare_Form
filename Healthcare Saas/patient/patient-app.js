@@ -297,6 +297,7 @@ function renderBookingPage() {
             `${API_BASE_URL}/api/patient_appointment/booking`,
             {
                 method: "POST",
+                credentials: "include",
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -456,9 +457,20 @@ async function renderSuccessPage() {
 
     const id = params.get("id");
 
+    console.log("API_BASE_URL =", API_BASE_URL);
+    console.log("id =", id);
+    console.log("URL =", `${API_BASE_URL}/api/patient_appointment/${id}`);
+
     const response = await fetch(
-        `${API_BASE_URL}/api/patient_appointment/${id}`
+        `${API_BASE_URL}/api/patient_appointment/${id}`,
+        {
+        method: "GET",
+        credentials: "include"
+    }
     );
+
+    console.log("Status:", response.status);
+    console.log("Content-Type:", response.headers.get("content-type"));
 
     if (!response.ok) {
         root.innerHTML = "Appointment not found";
@@ -466,6 +478,8 @@ async function renderSuccessPage() {
     }
 
     const appointment = await response.json();
+    console.log("Appointment:", appointment);
+
     if (!appointment) {
     root.innerHTML = "Appointment not found";
     return;
