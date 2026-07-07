@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://192.168.0.4:8000"; 
+const API_BASE_URL = "https://qualified-shelve-ambiguous.ngrok-free.dev"; 
 // const PATIENT_DOCTORS = [
 //   { id: 1, name: 'Dr. Nisha Rao', department: 'Cardiology', slots: ['08:30', '11:00', '15:30'] },
 //   { id: 2, name: 'Dr. Arun Mehta', department: 'Neurology', slots: ['09:00', '14:00'] },
@@ -289,32 +289,51 @@ function renderBookingPage() {
     if (!phone || !patientName || !payload.date || !payload.time ) {
       return;
     }
+    console.log("Submitting...");
+    console.log(`${API_BASE_URL}/api/patient_appointment/booking`);
+    
+    try {
+        const response = await fetch(
+            `${API_BASE_URL}/api/patient_appointment/booking`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    patient_name: patientName,
+                    patient_phone: phone,
+                    appointment_date: payload.date,
+                    appointment_time: payload.time
+                })
+            }
+        );
 
-  //   const appointment = createAppointment(getPatientState(), {
-  //     patientName,
-  //     phone,
-  //     date: payload.date,
-  //     time: payload.time,
-  //  });
+        console.log("Status:", response.status);
 
-    // if (appointment) {
-    //   window.location.href = `success.html?ref=${appointment.reference}&phone=${encodeURIComponent(phone)}`;
-    // }
-    const response = await fetch(
-    `${API_BASE_URL}/api/patient_appointment/booking`,
-    {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            patient_name: patientName,
-            patient_phone: phone,
-            appointment_date: payload.date,
-            appointment_time: payload.time
-        })
+        const data = await response.json();
+        console.log("Response:", data);
+
+    } catch (err) {
+        console.error("Fetch error:", err);
+        alert(err.message);
     }
-    );
+
+    // const response = await fetch(
+    // `${API_BASE_URL}/api/patient_appointment/booking`,
+    // {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify({
+    //         patient_name: patientName,
+    //         patient_phone: phone,
+    //         appointment_date: payload.date,
+    //         appointment_time: payload.time
+    //     })
+    // }
+    // );
 
     if (!response.ok) {
       const error = await response.json();
