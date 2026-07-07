@@ -379,44 +379,44 @@ async function renderStatusPage() {
   }
   // const history = appointments.slice(1);
 
-  root.innerHTML = `
-    <div class="patient-card-grid">
-      <div class="patient-metric-card">
-        <h2>Track your appointment</h2>
-        <p>Use your mobile number to revisit the live appointment status at any time.</p>
-        <form id="patient-status-form" class="patient-form-grid" style="margin-top: 14px;">
-          <label>
-            Mobile number
-            <input name="phone" type="tel" inputmode="tel" placeholder="Enter your mobile number" value="${phoneValue}" required>
-          </label>
-          <button class="patient-button" type="submit">Track</button>
-        </form>
-      </div>
+  // root.innerHTML = `
+  //   <div class="patient-card-grid">
+  //     <div class="patient-metric-card">
+  //       <h2>Track your appointment</h2>
+  //       <p>Use your mobile number to revisit the live appointment status at any time.</p>
+  //       <form id="patient-status-form" class="patient-form-grid" style="margin-top: 14px;">
+  //         <label>
+  //           Mobile number
+  //           <input name="phone" type="tel" inputmode="tel" placeholder="Enter your mobile number" value="${phoneValue}" required>
+  //         </label>
+  //         <button class="patient-button" type="submit">Track</button>
+  //       </form>
+  //     </div>
 
-       ${currentAppointment ? `
-        <div class="patient-status-card">
-          <div class="patient-status-pill">${formatStatusLabel(currentAppointment.status)}</div>
-          <h3 style="margin-top: 10px;">${currentAppointment.id}</h3>
-          <div class="patient-appointment-meta">
-            <span>${currentAppointment.appointment_date}</span>
-            <span>${currentAppointment.appointment_time}</span>
-          </div>
-          <div class="patient-timeline">
-            ${getStatusStages(currentAppointment.status).map(step => `
-              <div class="patient-timeline-step ${step.active ? 'active' : ''}">
-                <span class="patient-timeline-dot"></span>
-                <span class="patient-timeline-label">${step.label}</span>
-              </div>
-            `).join('')}
-          </div>
-          <div class="patient-actions">
-            <a class="patient-button secondary" href="booking.html?phone=${encodeURIComponent(currentAppointment.patient_phone)}&step=details">Book another appointment</a>
-            <a class="patient-button" href="tel:+912241288190">Call hospital</a>
-          </div>
-        </div>
-      ` : `
-        <div class="patient-zero-state">No appointment was found for this number yet. Use the booking link to create one.</div>
-     `}
+  //      ${currentAppointment ? `
+  //       <div class="patient-status-card">
+  //         <div class="patient-status-pill">${formatStatusLabel(currentAppointment.status)}</div>
+  //         <h3 style="margin-top: 10px;">${currentAppointment.id}</h3>
+  //         <div class="patient-appointment-meta">
+  //           <span>${currentAppointment.appointment_date}</span>
+  //           <span>${currentAppointment.appointment_time}</span>
+  //         </div>
+  //         <div class="patient-timeline">
+  //           ${getStatusStages(currentAppointment.status).map(step => `
+  //             <div class="patient-timeline-step ${step.active ? 'active' : ''}">
+  //               <span class="patient-timeline-dot"></span>
+  //               <span class="patient-timeline-label">${step.label}</span>
+  //             </div>
+  //           `).join('')}
+  //         </div>
+  //         <div class="patient-actions">
+  //           <a class="patient-button secondary" href="booking.html?phone=${encodeURIComponent(currentAppointment.patient_phone)}&step=details">Book another appointment</a>
+  //           <a class="patient-button" href="tel:+912241288190">Call hospital</a>
+  //         </div>
+  //       </div>
+  //     ` : `
+  //       <div class="patient-zero-state">No appointment was found for this number yet. Use the booking link to create one.</div>
+  //    `}
 
     //   <div class="patient-metric-card">
     //     <h3>Appointment history</h3>
@@ -433,7 +433,7 @@ async function renderStatusPage() {
     //     `).join('')}</div>` : '<p>No previous appointments yet.</p>'}
     //   </div>
     // </div>
-  `;
+  // `;
 
   document.getElementById('patient-status-form')?.addEventListener('submit', (event) => {
     event.preventDefault();
