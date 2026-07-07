@@ -346,15 +346,32 @@ function renderBookingPage() {
       });
 }
 
-function renderStatusPage() {
+async function renderStatusPage() {
   const root = document.getElementById('patient-page-root');
   if (!root) return;
 
   const params = new URLSearchParams(window.location.search);
+  const PATIENT_SESSION_KEY = "curaos-patient-session";
   const phoneValue = params.get('phone') || sessionStorage.getItem(PATIENT_SESSION_KEY) || '';
   // const state = getPatientState();
-  // const appointments = getAppointmentsForPhone(phoneValue);
-  const currentAppointment = appointments[0] || null;
+  let currentAppointment = null;
+
+  if (phoneValue) {
+      try {
+          const response = await fetch(
+              `${API_BASE_URL}/api/patient_appointment/patient_phone/${phoneValue}`
+          );
+
+          if (response.ok) {
+              const appointments = await response.json();
+
+              // newest appointment
+              currentAppointment = appointments[0];
+          }
+      } catch (err) {
+          console.error(err);
+      }
+  }
   // const history = appointments.slice(1);
 
   root.innerHTML = `
@@ -498,18 +515,18 @@ async function renderSuccessPage() {
   }, 2600);
 }
 
-function initializePatientExperience() {
+async function initializePatientExperience() {
   const pathname = window.location.pathname;
   if (pathname.includes('booking.html')) {
     renderBookingPage();
   } else if (pathname.includes('success.html')) {
-    renderSuccessPage();
+    await renderSuccessPage();
   } else if (pathname.includes('status.html')) {
-    renderStatusPage();
+    await renderStatusPage();
     // window.addEventListener('storage', () => renderStatusPage());
     window.addEventListener('focus', () => renderStatusPage());
     setInterval(() => renderStatusPage(), 5000);
-  }
+  } 
 }
 
 // window.addEventListener('patient-state-updated', () => {
